@@ -22,11 +22,11 @@ const Nav = (props) => {
         <h2 className="nav-title">Big Hearts</h2>
       </Link>
       <div className="nav-middle">
-        <Link to="/">Feedback</Link>
-        <Link to="/">Doggo's</Link>
-        <Link to="/">Tasks</Link>
+        <Link to="/volfeedback">Feedback</Link>
+        <Link to="/voldoggos">Doggo's</Link>
+        <Link to="/voltasks">Tasks</Link>
         <Link to="/">Profile</Link>
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
         <div className="nav-right">
           <Link className="nav-link" to={loginLinkData.path}>
             {/* Show this link if they are logged in or not,
