@@ -3,6 +3,7 @@ import errors from "./errors.reducer";
 import loginMode from "./loginMode.reducer";
 import user from "./user.reducer";
 import tasks from "./tasks.reducer";
+import doggos from "./doggos.reducer";
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -13,8 +14,9 @@ import tasks from "./tasks.reducer";
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
-  user,
-  tasks, // will have an id and username if someone is logged in
+  user, // will have an id and username if someone is logged in
+  tasks,
+  doggos,
 });
 
 export default rootReducer;

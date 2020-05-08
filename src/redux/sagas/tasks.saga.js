@@ -3,7 +3,7 @@ import axios from "axios";
 
 function* getTasks(action) {
   try {
-    const response = yield axios.get("/api/template");
+    const response = yield axios.get("/api/template/tasks");
     yield put({
       type: "SET_TASKS",
       payload: response.data,
