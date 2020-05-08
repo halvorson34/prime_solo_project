@@ -3,7 +3,8 @@ import loginSaga from "./login.saga";
 import registrationSaga from "./registration.saga";
 import userSaga from "./user.saga";
 import tasksSaga from "./tasks.saga";
-import doggosSaga from "./doggos.saga";
+//import doggosSaga from "./doggos.saga";
+import feedbackSaga from "./feedback.saga";
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -18,6 +19,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     tasksSaga(),
-    doggosSaga(),
+    //doggosSaga(),
+    feedbackSaga(),
   ]);
 }

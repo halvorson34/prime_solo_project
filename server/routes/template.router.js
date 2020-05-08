@@ -38,6 +38,26 @@ router.get("/dogs", (req, res) => {
 /**
  * POST route template
  */
-router.post("/", (req, res) => {});
+router.post("/", (req, res) => {
+  const newFeedback = req.body;
+  const queryText = `INSERT INTO "feedback" ("comments", "issues", "thank_yous")
+  VALUES ($1, $2, $3);`;
+
+  const queryValues = [
+    newFeedback.comments,
+    newFeedback.issues,
+    newFeedback.thank_yous,
+  ];
+
+  pool
+    .query(queryText, queryValues)
+    .then((response) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
 
 module.exports = router;
