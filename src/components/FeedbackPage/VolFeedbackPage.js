@@ -23,6 +23,9 @@ class VolFeedbackPage extends Component {
       type: "SAVE_FEEDBACK",
       payload: this.state,
     });
+    this.setState({
+      comments: "",
+    });
   };
 
   // input on change for Issues
@@ -39,6 +42,9 @@ class VolFeedbackPage extends Component {
     this.props.dispatch({
       type: "SAVE_FEEDBACK",
       payload: this.state,
+    });
+    this.setState({
+      issues: "",
     });
   };
 
@@ -57,6 +63,9 @@ class VolFeedbackPage extends Component {
       type: "SAVE_FEEDBACK",
       payload: this.state,
     });
+    this.setState({
+      thank_yous: "",
+    });
   };
 
   render() {
@@ -64,11 +73,23 @@ class VolFeedbackPage extends Component {
       <div>
         <h1>VolFeedbackPage</h1>
         <form>
-          <input onChange={this.addComments} type="text" />
+          <input
+            onChange={this.addComments}
+            type="text"
+            value={this.state.comments}
+          />
           <button onClick={this.saveComments}>Submit</button>
-          <input onChange={this.addIssues} type="text" />
+          <input
+            onChange={this.addIssues}
+            type="text"
+            value={this.state.issues}
+          />
           <button onClick={this.saveIssues}>Submit</button>
-          <input onChange={this.addThankYous} type="text" />
+          <input
+            onChange={this.addThankYous}
+            type="text"
+            value={this.state.thank_yous}
+          />
           <button onClick={this.saveThankYous}>Submit</button>
         </form>
       </div>
