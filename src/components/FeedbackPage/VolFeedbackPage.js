@@ -7,6 +7,7 @@ class VolFeedbackPage extends Component {
   };
 
   addComments = (event) => {
+    console.log("POST");
     this.setState({
       comments: event.target.value,
     });
@@ -26,19 +27,13 @@ class VolFeedbackPage extends Component {
         <h1>VolFeedbackPage</h1>
         <form>
           <input onChange={this.addComments} type="text" />
-          <button onSubmit={this.saveComments} type="submit">
-            Submit
-          </button>
+          <button onClick={this.saveComments}>Submit</button>
         </form>
       </div>
     );
   }
 }
 
-const mapStoreToProps = (store) => {
-  return {
-    store,
-  };
-};
+const mapStoreToProps = (store) => ({ store });
 
 export default connect(mapStoreToProps)(VolFeedbackPage);

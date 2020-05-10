@@ -38,7 +38,7 @@ router.get("/dogs", (req, res) => {
 /**
  * POST route template
  */
-router.post("/", (req, res) => {
+router.post("/feedback", (req, res) => {
   const newFeedback = req.body;
   const queryText = `INSERT INTO "feedback" ("comments", "issues", "thank_yous")
   VALUES ($1, $2, $3);`;
