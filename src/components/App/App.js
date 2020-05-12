@@ -24,6 +24,7 @@ import "./App.css";
 import VolFeedbackPage from "../FeedbackPage/VolFeedbackPage";
 import VolDoggoPage from "../DoggoPage/VolDoggoPage";
 import VolTasksPage from "../TasksPage/VolTasksPage";
+import VolProfilePage from "../ProfilePage/VolProfilePage";
 
 class App extends Component {
   componentDidMount() {
@@ -42,6 +43,7 @@ class App extends Component {
             This is a route anyone can see, no login necessary */}
             <Route exact path="/about" component={AboutPage} />
             <Route exact path="/home" component={LandingPage} />
+            <Route exact path="/volprofile" component={VolProfilePage} />
             <Route exact path="/volfeedback" component={VolFeedbackPage} />
             <Route exact path="/voldoggos" component={VolDoggoPage} />
             <Route exact path="/voltasks" component={VolTasksPage} />

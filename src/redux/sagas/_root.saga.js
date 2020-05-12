@@ -5,6 +5,7 @@ import userSaga from "./user.saga";
 import tasksSaga from "./tasks.saga";
 import doggosSaga from "./doggos.saga";
 import feedbackSaga from "./feedback.saga";
+import volProfileSaga from "./volprofile.saga";
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     tasksSaga(),
     doggosSaga(),
     feedbackSaga(),
+    volProfileSaga(),
   ]);
 }

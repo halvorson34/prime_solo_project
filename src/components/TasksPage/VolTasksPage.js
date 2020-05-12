@@ -23,10 +23,6 @@ class VolTasksPage extends Component {
   }
 }
 
-const mapStoreToProps = (store) => {
-  return {
-    store,
-  };
-};
+const mapStoreToProps = (store) => ({ store });
 
 export default connect(mapStoreToProps)(VolTasksPage);

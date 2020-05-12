@@ -25,7 +25,7 @@ const Nav = (props) => {
         <Link to="/volfeedback">Feedback</Link>
         <Link to="/voldoggos">Doggo's</Link>
         <Link to="/voltasks">Tasks</Link>
-        <Link to="/">Profile</Link>
+        <Link to="/volprofile">Profile</Link>
         <Link to="/home">Home</Link>
         <div className="nav-right">
           <Link className="nav-link" to={loginLinkData.path}>

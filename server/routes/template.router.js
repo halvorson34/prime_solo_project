@@ -35,6 +35,21 @@ router.get("/dogs", (req, res) => {
     });
 });
 
+// GET route for Profile Info displayed on VolProfilePage
+router.get("/profile", (req, res) => {
+  const queryText = `SELECT * FROM "volunteer";`;
+
+  pool
+    .query(queryText)
+    .then((responseDb) => {
+      res.send(responseDb.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
 /**
  * POST route template
  */
