@@ -92,6 +92,21 @@ router.get("/adminprofile", (req, res) => {
     });
 });
 
+// GET route for Admin Feedback
+router.get("/adminfeedback", (req, res) => {
+  const queryText = `SELECT * FROM "feedback";`;
+
+  pool
+    .query(queryText)
+    .then((responseDb) => {
+      res.send(responseDb.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
 /**
  * POST route template
  */
