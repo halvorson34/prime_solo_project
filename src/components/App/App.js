@@ -27,6 +27,7 @@ import VolTasksPage from "../TasksPage/VolTasksPage";
 import VolProfilePage from "../ProfilePage/VolProfilePage";
 
 import VolDashboardPage from "../DashboardPage/VolDashboardPage";
+import AdminDashboardPage from "../DashboardPage/AdminDashboardPage";
 
 class App extends Component {
   componentDidMount() {
@@ -50,6 +51,11 @@ class App extends Component {
             <Route exact path="/voldoggos" component={VolDoggoPage} />
             <Route exact path="/voltasks" component={VolTasksPage} />
             <Route exact path="/voldashboard" component={VolDashboardPage} />
+            <Route
+              exact
+              path="/admindashboard"
+              component={AdminDashboardPage}
+            />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.

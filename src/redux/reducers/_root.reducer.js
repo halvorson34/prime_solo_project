@@ -7,6 +7,8 @@ import doggos from "./doggos.reducer";
 import feedback from "./feedback.reducer";
 import volProfile from "./volprofile.reducer";
 import volDashboard from "./voldashboard.reducer";
+import adminDashboard from "./admindashboard.reducer";
+import adminProfile from "./adminprofile.reducer";
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +25,8 @@ const rootReducer = combineReducers({
   feedback,
   volProfile,
   volDashboard,
+  adminDashboard,
+  adminProfile,
 });
 
 export default rootReducer;

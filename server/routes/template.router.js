@@ -2,10 +2,7 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-/**
- * GET route template
- */
-// GET route for Tasks displayed on VolTasksPage
+// GET route for Tasks
 router.get("/tasks", (req, res) => {
   const queryText = `SELECT * FROM "tasks" ORDER BY "task" ASC;`;
 
@@ -20,7 +17,7 @@ router.get("/tasks", (req, res) => {
     });
 });
 
-// GET route for Doggos displayed on VolDoggosPage
+// GET route for Doggos
 router.get("/dogs", (req, res) => {
   const queryText = `SELECT * FROM "dogs" ORDER BY "name" ASC;`;
 
@@ -35,7 +32,7 @@ router.get("/dogs", (req, res) => {
     });
 });
 
-// GET route for Profile Info displayed on VolProfilePage
+// GET route for Profile Info
 router.get("/profile", (req, res) => {
   const queryText = `SELECT * FROM "volunteer";`;
 
@@ -50,9 +47,39 @@ router.get("/profile", (req, res) => {
     });
 });
 
-// GET route for Volunteer Dashboard info displayed on VolDashboardPage
+// GET route for Volunteer Dashboard info
 router.get("/voldashboard", (req, res) => {
   const queryText = `SELECT * FROM "news";`;
+
+  pool
+    .query(queryText)
+    .then((responseDb) => {
+      res.send(responseDb.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
+// GET route for Admin Dashboard info
+router.get("/admindashboard", (req, res) => {
+  const queryText = `SELECT * FROM "news";`;
+
+  pool
+    .query(queryText)
+    .then((responseDb) => {
+      res.send(responseDb.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
+// GET route for Admin Profile info
+router.get("/adminprofile", (req, res) => {
+  const queryText = `SELECT * FROM "admin";`;
 
   pool
     .query(queryText)
