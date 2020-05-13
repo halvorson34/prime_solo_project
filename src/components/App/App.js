@@ -28,6 +28,7 @@ import VolProfilePage from "../ProfilePage/VolProfilePage";
 
 import VolDashboardPage from "../DashboardPage/VolDashboardPage";
 import AdminDashboardPage from "../DashboardPage/AdminDashboardPage";
+import AdminProfilePage from "../ProfilePage/AdminProfilePage";
 
 class App extends Component {
   componentDidMount() {
@@ -56,6 +57,7 @@ class App extends Component {
               path="/admindashboard"
               component={AdminDashboardPage}
             />
+            <Route exact path="/adminprofile" component={AdminProfilePage} />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.

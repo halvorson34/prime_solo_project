@@ -18,9 +18,9 @@ class VolDashboardPage extends Component {
         {this.props.store.volProfile.map((item, index) => (
           <div key={index}>
             <h3> Welcome {item.first_name}!</h3>
+            <h3>What's new...</h3>
             {this.props.store.volDashboard.map((item, index) => (
               <div key={index}>
-                <h3>What's new...</h3>
                 <ul>
                   <li>{item.message}</li>
                 </ul>

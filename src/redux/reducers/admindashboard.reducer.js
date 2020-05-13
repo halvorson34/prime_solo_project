@@ -2,6 +2,8 @@ const adminDashboard = (state = [], action) => {
   switch (action.type) {
     case "SET_ADMINDASHBOARD":
       return action.payload;
+    case "GET_MESSAGE":
+      return action.payload;
     default:
       return state;
   }

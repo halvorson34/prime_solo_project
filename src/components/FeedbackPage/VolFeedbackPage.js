@@ -30,7 +30,6 @@ class VolFeedbackPage extends Component {
 
   // input on change for Issues
   addIssues = (event) => {
-    console.log("POST");
     this.setState({
       issues: event.target.value,
     });

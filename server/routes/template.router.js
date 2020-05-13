@@ -117,4 +117,22 @@ router.post("/feedback", (req, res) => {
     });
 });
 
+router.post("/admindashboard", (req, res) => {
+  const newMessage = req.body;
+  const queryText = `INSERT INTO "news" ("message")
+  VALUES ($1);`;
+
+  const queryValues = [newMessage.message];
+
+  pool
+    .query(queryText, queryValues)
+    .then((response) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
