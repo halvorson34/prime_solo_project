@@ -50,6 +50,21 @@ router.get("/profile", (req, res) => {
     });
 });
 
+// GET route for Volunteer Dashboard info displayed on VolDashboardPage
+router.get("/voldashboard", (req, res) => {
+  const queryText = `SELECT * FROM "news";`;
+
+  pool
+    .query(queryText)
+    .then((responseDb) => {
+      res.send(responseDb.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
 /**
  * POST route template
  */
