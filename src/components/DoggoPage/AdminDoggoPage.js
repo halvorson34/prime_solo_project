@@ -2,13 +2,110 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class AdminDoggoPage extends Component {
+  state = {
+    name: "",
+    breed: "",
+    age: "",
+    arrived: "",
+    notes: "",
+    walked: false,
+    played: false,
+    favorite: false,
+  };
+
+  // input on change for Comments
+  addDoggoName = (event) => {
+    this.setState({
+      name: event.target.value,
+    });
+  };
+
+  // input on change for Comments
+  addDoggoBreed = (event) => {
+    this.setState({
+      breed: event.target.value,
+    });
+  };
+
+  // input on change for Comments
+  addDoggoAge = (event) => {
+    this.setState({
+      age: event.target.value,
+    });
+  };
+
+  // input on change for Comments
+  addDoggoArrived = (event) => {
+    this.setState({
+      arrived: event.target.value,
+    });
+  };
+
+  // input on change for Comments
+  addDoggoNotes = (event) => {
+    this.setState({
+      notes: event.target.value,
+    });
+  };
+
+  // onClick event for Comments, send input data to feedback reducer and post to feedback table in prime_app database
+  saveDoggo = (event) => {
+    event.preventDefault();
+    this.props.dispatch({
+      type: "SAVE_DOGGOS",
+      payload: this.state,
+    });
+    this.setState({
+      name: "",
+      breed: "",
+      age: "",
+      arrived: "",
+      notes: "",
+    });
+  };
+
   render() {
     return (
       <div>
         <h1>AdminDoggoPage</h1>
+        <form>
+          Name:{" "}
+          <input
+            onChange={this.addDoggoName}
+            type="text"
+            value={this.state.name}
+          />
+          Breed:{" "}
+          <input
+            onChange={this.addDoggoBreed}
+            type="text"
+            value={this.state.breed}
+          />
+          Age:{" "}
+          <input
+            onChange={this.addDoggoAge}
+            type="text"
+            value={this.state.age}
+          />
+          Arrived:{" "}
+          <input
+            onChange={this.addDoggoArrived}
+            type="text"
+            value={this.state.arrived}
+          />
+          Notes:{" "}
+          <input
+            onChange={this.addDoggoNotes}
+            type="text"
+            value={this.state.notes}
+          />
+          <button onClick={this.saveDoggo}>Submit</button>
+        </form>
       </div>
     );
   }
 }
 
-export default connect()(AdminDoggoPage);
+const mapStoreToProps = (store) => ({ store });
+
+export default connect(mapStoreToProps)(AdminDoggoPage);

@@ -10,6 +10,7 @@ import volDashboardSaga from "./voldashboard.saga";
 import adminDashboardSaga from "./admindashboard.saga";
 import adminProfileSaga from "./adminprofile.saga";
 import adminFeedbackSaga from "./adminfeedback.saga";
+import adminDoggosSaga from "./admindoggos.saga";
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -31,5 +32,6 @@ export default function* rootSaga() {
     adminDashboardSaga(),
     adminProfileSaga(),
     adminFeedbackSaga(),
+    adminDoggosSaga(),
   ]);
 }

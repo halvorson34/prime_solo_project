@@ -107,6 +107,23 @@ router.get("/adminfeedback", (req, res) => {
     });
 });
 
+/* DELETE route */
+
+router.delete("/adminfeedback/:id", (req, res) => {
+  const feedbackId = req.params.id;
+  const queryText = `DELETE FROM "feedback" WHERE "id" =$1";`;
+
+  pool
+    .query(queryText, [feedbackId])
+    .then((responseDb) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
 /**
  * POST route template
  */
@@ -119,6 +136,30 @@ router.post("/feedback", (req, res) => {
     newFeedback.comments,
     newFeedback.issues,
     newFeedback.thank_yous,
+  ];
+
+  pool
+    .query(queryText, queryValues)
+    .then((response) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
+router.post("/admindoggos", (req, res) => {
+  const newDoggo = req.body;
+  const queryText = `INSERT INTO "dogs" ("name", "breed", "age", "arrived", "notes")
+  VALUES ($1, $2, $3, $4, $5);`;
+
+  const queryValues = [
+    newDoggo.name,
+    newDoggo.breed,
+    newDoggo.age,
+    newDoggo.arrived,
+    newDoggo.notes,
   ];
 
   pool

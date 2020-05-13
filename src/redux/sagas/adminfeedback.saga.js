@@ -13,8 +13,20 @@ function* getFeedback(action) {
   }
 }
 
+function* deleteFeedback(action) {
+  try {
+    yield axios.delete(
+      `/api/template/adminfeedback/:id/${action.payload.feedbackId}`
+    );
+    yield put({ type: "GET_ADMINFEEDBACK" });
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
 function* adminFeedbackSaga() {
   yield takeLatest("GET_ADMINFEEDBACK", getFeedback);
+  yield takeLatest("DELETE_ADMINFEEDBACK", deleteFeedback);
 }
 
 export default adminFeedbackSaga;
