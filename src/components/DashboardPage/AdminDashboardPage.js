@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 class AdminDashboardPage extends Component {
   componentDidMount() {
     this.props.dispatch({
-      type: "GET_ADMINPROFILE",
+      type: "GET_ADMIN",
     });
     this.props.dispatch({
-      type: "GET_ADMINDASHBOARD",
+      type: "GET_NEWS",
     });
   }
 
@@ -26,7 +26,7 @@ class AdminDashboardPage extends Component {
   saveMessage = (event) => {
     event.preventDefault();
     this.props.dispatch({
-      type: "SAVE_MESSAGE",
+      type: "SAVE_NEWS",
       payload: this.state,
     });
     this.setState({
@@ -38,7 +38,7 @@ class AdminDashboardPage extends Component {
     return (
       <div>
         <h1>Admin Dashboard</h1>
-        {this.props.store.adminProfile.map((item, index) => (
+        {this.props.store.admin.map((item, index) => (
           <div key={index}>
             <h3> Welcome {item.first_name}!</h3>
             <h3>What's new...</h3>
@@ -52,7 +52,7 @@ class AdminDashboardPage extends Component {
           </div>
         ))}
         <h3>What's New...</h3>
-        {this.props.store.adminDashboard.map((item, index) => (
+        {this.props.store.news.map((item, index) => (
           <div key={index}>
             <ul>
               <li>{item.message}</li>

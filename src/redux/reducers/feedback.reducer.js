@@ -1,6 +1,6 @@
 const feedback = (state = [], action) => {
   switch (action.type) {
-    case "GET_FEEDBACK":
+    case "SET_FEEDBACK":
       return action.payload;
     default:
       return state;

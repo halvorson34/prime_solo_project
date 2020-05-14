@@ -3,8 +3,20 @@ import axios from "axios";
 
 function* saveFeedback(action) {
   try {
-    yield axios.post("/api/template/feedback", action.payload);
+    yield axios.post("/api/feedback/", action.payload);
     yield put({ type: "GET_FEEDBACK" });
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
+function* getFeedback(action) {
+  try {
+    const response = yield axios.get("/api/feedback/");
+    yield put({
+      type: "SET_FEEDBACK",
+      payload: response.data,
+    });
   } catch (err) {
     console.warn(err);
   }
@@ -12,6 +24,7 @@ function* saveFeedback(action) {
 
 function* feedbackSaga() {
   yield takeLatest("SAVE_FEEDBACK", saveFeedback);
+  yield takeLatest("GET_FEEDBACK", getFeedback);
 }
 
 export default feedbackSaga;

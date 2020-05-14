@@ -10,7 +10,6 @@ class VolFeedbackPage extends Component {
 
   // input on change for Comments
   addComments = (event) => {
-    console.log("POST");
     this.setState({
       comments: event.target.value,
     });
@@ -49,7 +48,6 @@ class VolFeedbackPage extends Component {
 
   // input on change for Thank Yous
   addThankYous = (event) => {
-    console.log("POST");
     this.setState({
       thank_yous: event.target.value,
     });

@@ -3,7 +3,7 @@ import axios from "axios";
 
 function* getDoggos(action) {
   try {
-    const response = yield axios.get("/api/template/dogs");
+    const response = yield axios.get("/api/doggos/");
     yield put({
       type: "SET_DOGGOS",
       payload: response.data,
@@ -13,8 +13,18 @@ function* getDoggos(action) {
   }
 }
 
+function* saveDoggo(action) {
+  try {
+    yield axios.post("/api/doggos/", action.payload);
+    yield put({ type: "GET_DOGGOS" });
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
 function* doggosSaga() {
   yield takeLatest("GET_DOGGOS", getDoggos);
+  yield takeLatest("SAVE_DOGGOS", saveDoggo);
 }
 
 export default doggosSaga;

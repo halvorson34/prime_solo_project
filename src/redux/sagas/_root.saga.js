@@ -5,12 +5,9 @@ import userSaga from "./user.saga";
 import tasksSaga from "./tasks.saga";
 import doggosSaga from "./doggos.saga";
 import feedbackSaga from "./feedback.saga";
-import volProfileSaga from "./volprofile.saga";
-import volDashboardSaga from "./voldashboard.saga";
-import adminDashboardSaga from "./admindashboard.saga";
-import adminProfileSaga from "./adminprofile.saga";
-import adminFeedbackSaga from "./adminfeedback.saga";
-import adminDoggosSaga from "./admindoggos.saga";
+import volunteerSaga from "./volunteer.saga";
+import adminSaga from "./admin.saga";
+import newsSaga from "./news.saga";
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -27,11 +24,8 @@ export default function* rootSaga() {
     tasksSaga(),
     doggosSaga(),
     feedbackSaga(),
-    volProfileSaga(),
-    volDashboardSaga(),
-    adminDashboardSaga(),
-    adminProfileSaga(),
-    adminFeedbackSaga(),
-    adminDoggosSaga(),
+    volunteerSaga(),
+    adminSaga(),
+    newsSaga(),
   ]);
 }

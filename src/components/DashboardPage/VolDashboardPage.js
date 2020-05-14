@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 class VolDashboardPage extends Component {
   componentDidMount() {
     this.props.dispatch({
-      type: "GET_VOLPROFILE",
+      type: "GET_VOLUNTEER",
     });
     this.props.dispatch({
-      type: "GET_VOLDASHBOARD",
+      type: "GET_NEWS",
     });
   }
 
@@ -15,11 +15,11 @@ class VolDashboardPage extends Component {
     return (
       <div>
         <h1>Volunteer Dashboard</h1>
-        {this.props.store.volProfile.map((item, index) => (
+        {this.props.store.volunteer.map((item, index) => (
           <div key={index}>
             <h3> Welcome {item.first_name}!</h3>
             <h3>What's new...</h3>
-            {this.props.store.volDashboard.map((item, index) => (
+            {this.props.store.news.map((item, index) => (
               <div key={index}>
                 <ul>
                   <li>{item.message}</li>

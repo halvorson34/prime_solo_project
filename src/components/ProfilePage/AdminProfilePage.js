@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class AdminProfilePage extends Component {
   componentDidMount() {
     this.props.dispatch({
-      type: "GET_ADMINPROFILE",
+      type: "GET_ADMIN",
     });
   }
 
@@ -12,7 +12,7 @@ class AdminProfilePage extends Component {
     return (
       <div>
         <h1>Admin Profile Page</h1>
-        {this.props.store.adminProfile.map((item, index) => (
+        {this.props.store.admin.map((item, index) => (
           <div key={index}>
             <ul>
               <li>First Name: {item.first_name}</li>

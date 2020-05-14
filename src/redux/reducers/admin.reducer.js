@@ -1,6 +1,6 @@
-const adminProfile = (state = [], action) => {
+const admin = (state = [], action) => {
   switch (action.type) {
-    case "SET_ADMINPROFILE":
+    case "SET_ADMIN":
       return action.payload;
     default:
       return state;
@@ -9,4 +9,4 @@ const adminProfile = (state = [], action) => {
 
 // user will be on the redux state at:
 // state.user
-export default adminProfile;
+export default admin;

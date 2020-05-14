@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class VolProfilePage extends Component {
   componentDidMount() {
     this.props.dispatch({
-      type: "GET_VOLPROFILE",
+      type: "GET_VOLUNTEER",
     });
   }
 
@@ -12,7 +12,7 @@ class VolProfilePage extends Component {
     return (
       <div>
         <h1>Volunteer Profile Page</h1>
-        {this.props.store.volProfile.map((item, index) => (
+        {this.props.store.volunteer.map((item, index) => (
           <div key={index}>
             <ul>
               <li>First Name: {item.first_name}</li>

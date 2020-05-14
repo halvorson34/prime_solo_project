@@ -1,6 +1,6 @@
-const volProfile = (state = [], action) => {
+const volunteer = (state = [], action) => {
   switch (action.type) {
-    case "SET_VOLPROFILE":
+    case "SET_VOLUNTEER":
       return action.payload;
     default:
       return state;
@@ -9,4 +9,4 @@ const volProfile = (state = [], action) => {
 
 // user will be on the redux state at:
 // state.user
-export default volProfile;
+export default volunteer;

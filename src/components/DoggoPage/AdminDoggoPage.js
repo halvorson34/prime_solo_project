@@ -11,6 +11,7 @@ class AdminDoggoPage extends Component {
     walked: false,
     played: false,
     favorite: false,
+    picture: "",
   };
 
   // input on change for Comments
