@@ -13,8 +13,18 @@ function* getTasks(action) {
   }
 }
 
+function* saveTasks(action) {
+  try {
+    yield axios.post("/api/tasks/", action.payload);
+    yield put({ type: "GET_TASKS" });
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
 function* tasksSaga() {
   yield takeLatest("GET_TASKS", getTasks);
+  yield takeLatest("SAVE_TASKS", saveTasks);
 }
 
 export default tasksSaga;

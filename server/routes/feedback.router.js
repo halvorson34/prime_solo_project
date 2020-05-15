@@ -2,9 +2,9 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-//FEEDBACK ROUTES
+// FEEDBACK ROUTES
 
-// GET route for Admin Feedback
+// GET route for FEEDBACK
 router.get("/", (req, res) => {
   const queryText = `SELECT * FROM "feedback";`;
 
@@ -36,6 +36,23 @@ router.post("/", (req, res) => {
     .query(queryText, queryValues)
     .then((response) => {
       res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
+// DELETE route for FEEDBACK
+
+router.delete("/:id", (req, res) => {
+  const feedbackId = req.params.id;
+  const queryString = `DELETE FROM "feedback" WHERE "id" = $1;`;
+
+  pool
+    .query(queryString, [feedbackId])
+    .then((responseDb) => {
+      res.sendStatus(200);
     })
     .catch((err) => {
       console.warn(err);

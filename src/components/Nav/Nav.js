@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import LogOutButton from "../LogOutButton/LogOutButton";
+//import LogOutButton from "../LogOutButton/LogOutButton";
 import "./Nav.css";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 
 const Nav = (props) => {
-  let loginLinkData = {
+  /*let loginLinkData = {
     path: "/home",
     text: "Login / Register",
   };
@@ -14,28 +14,38 @@ const Nav = (props) => {
   if (props.store.user.id != null) {
     loginLinkData.path = "/admin";
     loginLinkData.text = "Home";
-  }
+  }*/
 
   return (
     <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Big Hearts</h2>
-      </Link>
+      {/*<Link to="/home">*/}
+      <h2 className="nav-title">Big Hearts</h2>
+      {/*</Link>*/}
       <div className="nav-middle">
-        <Link to="/volfeedback">Feedback</Link>
-        <Link to="/voldoggos">Doggo's</Link>
-        <Link to="/voltasks">Tasks</Link>
-        <Link to="/volprofile">Profile</Link>
-        <Link to="/home">Home</Link>
-        <div className="nav-right">
-          <Link className="nav-link" to={loginLinkData.path}>
-            {/* Show this link if they are logged in or not,
+        <Link className="nav-link" to="/volfeedback">
+          Feedback
+        </Link>
+        <Link className="nav-link" to="/voldoggos">
+          Doggo's
+        </Link>
+        <Link className="nav-link" to="/voltasks">
+          Tasks
+        </Link>
+        <Link className="nav-link" to="/volprofile">
+          Profile
+        </Link>
+        <Link className="nav-link" to="/home">
+          Home
+        </Link>
+        {/*<div className="nav-right">*/}
+        {/*<Link className="nav-link" to={loginLinkData.path}>*/}
+        {/* Show this link if they are logged in or not,
           but call this link 'Home' if they are logged in,
-          and call this link 'Login / Register' if they are not */}
-            {loginLinkData.text}
-          </Link>
-          {/* Show the link to the info page and the logout button if the user is logged in */}
-          {props.store.user.id && (
+            and call this link 'Login / Register' if they are not */}
+        {/*{loginLinkData.text}*/}
+        {/*</Link>*/}
+        {/* Show the link to the info page and the logout button if the user is logged in */}
+        {/*{props.store.user.id && (
             <>
               <Link className="nav-link" to="/info">
                 Info Page
@@ -44,10 +54,9 @@ const Nav = (props) => {
             </>
           )}
           {/* Always show this link since the about page is not protected */}
-          <Link className="nav-link" to="/about">
-            About
-          </Link>
-        </div>
+        <Link className="nav-link" to="/about">
+          About
+        </Link>
       </div>
     </div>
   );

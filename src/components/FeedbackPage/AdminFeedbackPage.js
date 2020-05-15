@@ -8,6 +8,13 @@ class AdminFeedbackPage extends Component {
     });
   }
 
+  deleteFeedback = (event) => {
+    this.props.dispatch({
+      type: "DELETE_FEEDBACK",
+      payload: `/api/feedback/${this.props.store.feedback.map}`,
+    });
+  };
+
   render() {
     return (
       <div>
@@ -19,7 +26,7 @@ class AdminFeedbackPage extends Component {
                 {item.comments}
                 {/*{item.issues} */}
                 {/*{item.thank_yous}*/}
-                <button>Delete</button>
+                <button onClick={this.deleteFeedback}>Delete</button>
               </li>
             </ul>
           </div>
