@@ -32,14 +32,23 @@ class AdminTasksPage extends Component {
     });
   };
 
+  deleteTask = (id, event) => {
+    this.props.dispatch({
+      type: "DELETE_TASKS",
+      payload: `/api/tasks/${id}`,
+    });
+  };
+
   render() {
     return (
       <div>
         <h1>Tasks</h1>
         {this.props.store.tasks.map((item, index) => (
           <div key={index}>
-            <input type="radio"></input>
             {item.task}
+            <button onClick={(event) => this.deleteTask(item.id, event)}>
+              Delete
+            </button>
           </div>
         ))}
         <h3>Add Task</h3>

@@ -11,7 +11,7 @@ class VolDoggoPage extends Component {
   render() {
     return (
       <div>
-        <h1>VolDoggoPage</h1>
+        <h1>Doggo's</h1>
         {this.props.store.doggos.map((item, index) => (
           <div key={index} class="dogList">
             <img src={item.picture} alt={item.name} />
@@ -26,14 +26,11 @@ class VolDoggoPage extends Component {
             <br />
             Notes: {item.notes}
             <br />
-            <input type="radio"></input>
-            {item.walked}
-            <p>Walked</p>
+            <input type="radio" id="walked"></input>
+            <label for="walked">Walked</label>
             <br />
-            <input type="radio"></input>
-            {item.played}
-            <p>Played</p>
-            <br />
+            <input type="radio" id="Played"></input>
+            <label for="Played">Played</label>
           </div>
         ))}
       </div>

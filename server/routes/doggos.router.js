@@ -2,11 +2,12 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-// DOGGO ROUTES
+// DOG ROUTES
 
-// GET route for Doggos
+// GET route for DOGS
+
 router.get("/", (req, res) => {
-  const queryText = `SELECT * FROM "dogs" ORDER BY "name" ASC;`;
+  const queryText = `SELECT * FROM "dogs";`;
 
   pool
     .query(queryText)
@@ -18,6 +19,8 @@ router.get("/", (req, res) => {
       res.sendStatus(500);
     });
 });
+
+// POST route for DOGS
 
 router.post("/", (req, res) => {
   const newDoggo = req.body;
@@ -40,6 +43,23 @@ router.post("/", (req, res) => {
     .query(queryText, queryValues)
     .then((response) => {
       res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
+// DELETE route for DOGS
+
+router.delete("/:id", (req, res) => {
+  const dogId = req.params.id;
+  const queryString = `DELETE FROM "dogs" WHERE "id" = $1;`;
+
+  pool
+    .query(queryString, [dogId])
+    .then((responseDb) => {
+      res.sendStatus(200);
     })
     .catch((err) => {
       console.warn(err);

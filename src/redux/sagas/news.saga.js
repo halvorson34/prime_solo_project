@@ -22,9 +22,21 @@ function* saveNews(action) {
   }
 }
 
+function* deleteNews(action) {
+  try {
+    yield axios.delete(action.payload);
+    yield put({
+      type: "GET_NEWS",
+    });
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
 function* newsSaga() {
   yield takeLatest("GET_NEWS", getNews);
   yield takeLatest("SAVE_NEWS", saveNews);
+  yield takeLatest("DELETE_NEWS", deleteNews);
 }
 
 export default newsSaga;

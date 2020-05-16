@@ -22,9 +22,21 @@ function* saveDoggo(action) {
   }
 }
 
+function* deleteDoggo(action) {
+  try {
+    yield axios.delete(action.payload);
+    yield put({
+      type: "GET_DOGGOS",
+    });
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
 function* doggosSaga() {
   yield takeLatest("GET_DOGGOS", getDoggos);
   yield takeLatest("SAVE_DOGGOS", saveDoggo);
+  yield takeLatest("DELETE_DOGGOS", deleteDoggo);
 }
 
 export default doggosSaga;

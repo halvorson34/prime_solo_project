@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+//import DropzoneS3Uploader from "react-dropzone-s3-uploader";
+//import ImageUpload from "../ImageUpload/ImageUpload";
 
 class AdminDoggoPage extends Component {
+  componentDidMount() {
+    this.props.dispatch({
+      type: "GET_DOGGOS",
+    });
+  }
+
   state = {
     name: "",
     breed: "",
@@ -65,43 +73,65 @@ class AdminDoggoPage extends Component {
     });
   };
 
+  deleteDoggo = (id, event) => {
+    this.props.dispatch({
+      type: "DELETE_DOGGOS",
+      payload: `/api/doggos/${id}`,
+    });
+  };
+
   render() {
     return (
       <div>
-        <h1>AdminDoggoPage</h1>
-        <form>
-          Name:{" "}
-          <input
-            onChange={this.addDoggoName}
-            type="text"
-            value={this.state.name}
-          />
-          Breed:{" "}
-          <input
-            onChange={this.addDoggoBreed}
-            type="text"
-            value={this.state.breed}
-          />
-          Age:{" "}
-          <input
-            onChange={this.addDoggoAge}
-            type="text"
-            value={this.state.age}
-          />
-          Arrived:{" "}
-          <input
-            onChange={this.addDoggoArrived}
-            type="text"
-            value={this.state.arrived}
-          />
-          Notes:{" "}
-          <input
-            onChange={this.addDoggoNotes}
-            type="text"
-            value={this.state.notes}
-          />
-          <button onClick={this.saveDoggo}>Submit</button>
-        </form>
+        <h1>Doggo's</h1>
+        Name:{" "}
+        <input
+          onChange={this.addDoggoName}
+          type="text"
+          value={this.state.name}
+        />
+        Breed:{" "}
+        <input
+          onChange={this.addDoggoBreed}
+          type="text"
+          value={this.state.breed}
+        />
+        Age:{" "}
+        <input onChange={this.addDoggoAge} type="text" value={this.state.age} />
+        Arrived:{" "}
+        <input
+          onChange={this.addDoggoArrived}
+          type="text"
+          value={this.state.arrived}
+        />
+        Notes:{" "}
+        <input
+          onChange={this.addDoggoNotes}
+          type="text"
+          value={this.state.notes}
+        />
+        <button onClick={this.saveDoggo}>Submit</button>
+        <h1>Doggo's</h1>
+        {this.props.store.doggos.map((item, index) => (
+          <div key={index} class="dogList">
+            <img src={item.picture} alt={item.name} />
+            <br />
+            Name: {item.name}
+            <br />
+            Breed: {item.breed}
+            <br />
+            Age: {item.age}
+            <br />
+            Arrived: {item.arrived}
+            <br />
+            Notes: {item.notes}
+            <br />
+            <button onClick={(event) => this.deleteDoggo(item.id, event)}>
+              Delete
+            </button>
+            <br />
+          </div>
+        ))}
       </div>
     );
   }

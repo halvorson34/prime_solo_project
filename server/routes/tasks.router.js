@@ -6,7 +6,7 @@ const router = express.Router();
 
 // GET route for TASKS table
 router.get("/", (req, res) => {
-  const queryText = `SELECT * FROM "tasks" ORDER BY "task" ASC;`;
+  const queryText = `SELECT * FROM "tasks";`;
 
   pool
     .query(queryText)
@@ -32,6 +32,23 @@ router.post("/", (req, res) => {
     .query(queryText, queryValues)
     .then((response) => {
       res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
+// DELETE route for TASKS
+
+router.delete("/:id", (req, res) => {
+  const taskId = req.params.id;
+  const queryString = `DELETE FROM "tasks" WHERE "id" = $1;`;
+
+  pool
+    .query(queryString, [taskId])
+    .then((responseDb) => {
+      res.sendStatus(200);
     })
     .catch((err) => {
       console.warn(err);

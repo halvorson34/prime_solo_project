@@ -16,14 +16,14 @@ class AdminDashboardPage extends Component {
   };
 
   // input on change for Message
-  addMessage = (event) => {
+  addNews = (event) => {
     this.setState({
       message: event.target.value,
     });
   };
 
   // onClick event for Message, send input data to Admin Dashboard reducer and post to news table in prime_app database
-  saveMessage = (event) => {
+  saveNews = (event) => {
     event.preventDefault();
     this.props.dispatch({
       type: "SAVE_NEWS",
@@ -34,6 +34,13 @@ class AdminDashboardPage extends Component {
     });
   };
 
+  deleteNews = (id, event) => {
+    this.props.dispatch({
+      type: "DELETE_NEWS",
+      payload: `/api/news/${id}`,
+    });
+  };
+
   render() {
     return (
       <div>
@@ -41,31 +48,24 @@ class AdminDashboardPage extends Component {
         {this.props.store.admin.map((item, index) => (
           <div key={index}>
             <h3> Welcome {item.first_name}!</h3>
-            <h3>What's new...</h3>
-            {/*{this.props.store.adminDashboard.map((item, index) => (
-              <div key={index}>
-                <ul>
-                  <li>{item.message}</li>
-                </ul>
-              </div>
-            ))}*/}
           </div>
         ))}
         <h3>What's New...</h3>
         {this.props.store.news.map((item, index) => (
           <div key={index}>
             <ul>
-              <li>{item.message}</li>
+              <li>
+                {item.message}{" "}
+                <button onClick={(event) => this.deleteNews(item.id, event)}>
+                  Delete
+                </button>
+              </li>
             </ul>
           </div>
         ))}
         <h3>New Message to Volunteers</h3>
-        <input
-          onChange={this.addMessage}
-          type="text"
-          value={this.state.message}
-        />
-        <button onClick={this.saveMessage}>Submit</button>
+        <input onChange={this.addNews} type="text" value={this.state.message} />
+        <button onClick={this.saveNews}>Submit</button>
       </div>
     );
   }
