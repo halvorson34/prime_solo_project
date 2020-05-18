@@ -9,7 +9,7 @@ const Nav = (props) => {
     <div className="nav">
       <h2 className="nav-title">Big Hearts</h2>
       <img src="../images/BigHeart.png" alt="Heart" className="image" />
-      <Link className="nav-link" to="/home">
+      <Link className="nav-link" to="/">
         Home
       </Link>
       <div className="nav-middle">

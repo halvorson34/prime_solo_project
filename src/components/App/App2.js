@@ -28,7 +28,7 @@ class App2 extends Component {
       <Router>
         <div>
           {/*<Nav2 />*/}
-          <Route exact path="/home" component={LandingPage} />
+          <Route exact path="/" component={LandingPage} />
           <Route exact path="/volprofile" component={VolProfilePage} />
           <Route exact path="/volfeedback" component={VolFeedbackPage} />
           <Route exact path="/voldoggos" component={VolDoggoPage} />
