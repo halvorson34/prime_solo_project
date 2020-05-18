@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import Container from "@material-ui/core/Container";
+
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+
 class AdminTasksPage extends Component {
   componentDidMount() {
     this.props.dispatch({
@@ -42,18 +47,31 @@ class AdminTasksPage extends Component {
   render() {
     return (
       <div>
-        <h1>Tasks</h1>
-        {this.props.store.tasks.map((item, index) => (
-          <div key={index}>
-            {item.task}
-            <button onClick={(event) => this.deleteTask(item.id, event)}>
-              Delete
-            </button>
-          </div>
-        ))}
-        <h3>Add Task</h3>
-        <input onChange={this.addTask} type="text" value={this.state.task} />
-        <button onClick={this.saveTask}>ADD</button>
+        <Container maxWidth={false}>
+          <h1>Tasks</h1>
+          <h2 class="taskHeading">Current task list...</h2>
+          <img src="./images/DogBath.png" class="taskImg" />
+          {this.props.store.tasks.map((item, index) => (
+            <div key={index} class="tasks">
+              <ul>
+                <li>
+                  {item.task}
+                  <IconButton
+                    aria-label="delete"
+                    onClick={(event) => this.deleteTask(item.id, event)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </li>
+              </ul>
+            </div>
+          ))}
+          <h2 class="taskHeading">Add new task...</h2>
+          <input onChange={this.addTask} type="text" value={this.state.task} />
+          <button class="button" onClick={this.saveTask}>
+            <span>Add </span>
+          </button>
+        </Container>
       </div>
     );
   }

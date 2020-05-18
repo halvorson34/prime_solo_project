@@ -2,8 +2,34 @@ form {
   text-align: center;
 }
 
-.line {
-  text-align: center;
+.newsItems {
+  color: white;
+  font-weight: bold;
+}
+
+.taskImg {
+  float: right;
+}
+
+.tasks {
+  color: white;
+  font-weight: bold;
+}
+
+.dashboardHeading {
+  color: white;
+  text-shadow: -2px 0 #f85b00, 0 2px #f85b00, 2px 0 #f85b00, 0 -2px #f85b00;
+  font-size: 30px;
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-weight: bold;
+}
+
+.taskHeading {
+  color: white;
+  text-shadow: -2px 0 #f85b00, 0 2px #f85b00, 2px 0 #f85b00, 0 -2px #f85b00;
+  font-size: 30px;
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-weight: bold;
 }
 
 .dogGroupImg {

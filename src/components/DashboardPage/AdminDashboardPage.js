@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 
 import Container from "@material-ui/core/Container";
 
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+
 class AdminDashboardPage extends Component {
   componentDidMount() {
     this.props.dispatch({
@@ -53,24 +56,24 @@ class AdminDashboardPage extends Component {
               <h2 class="welcome"> Welcome {item.first_name}!</h2>
             </div>
           ))}
-          <h3>What's New...</h3>
+          <h3 class="dashboardHeading">What's New...</h3>
           <img src="../images/DogGroup.png" class="dogGroupImg" />
           {this.props.store.news.map((item, index) => (
-            <div key={index}>
+            <div key={index} class="newsItems">
               <ul>
                 <li>
                   {item.message}{" "}
-                  <button
-                    class="button"
+                  <IconButton
+                    aria-label="delete"
                     onClick={(event) => this.deleteNews(item.id, event)}
                   >
-                    <span>Delete</span>
-                  </button>
+                    <DeleteIcon />
+                  </IconButton>
                 </li>
               </ul>
             </div>
           ))}
-          <h3>Send a Message to Volunteers!</h3>
+          <h3 class="dashboardHeading">Send a Message to Volunteers...</h3>
           <textarea
             rows="25"
             cols="50"
