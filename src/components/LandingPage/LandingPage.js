@@ -1,50 +1,55 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import mapStoreToProps from "../../redux/mapStoreToProps";
+import Nav4 from "../Nav/Nav4";
 
-import './LandingPage.css';
+import "./LandingPage.css";
+
+import Button from "@material-ui/core/Button";
 
 class LandingPage extends Component {
-    state = {
-        heading: 'Class Component',
-    };
+  onAdmin = (event) => {
+    this.props.history.push("/admindashboard");
+  };
 
-    onLogin = (event) => {
-        this.props.history.push('/login');
-    }
+  onVol = (event) => {
+    this.props.history.push("/voldashboard");
+  };
 
-    render() {
-        return (
-            <div className="container">
-                <h2>{this.state.heading}</h2>
+  render() {
+    return (
+      <div>
+        <Nav4 />
 
-                <div className="grid">
-                    <div className="grid-col grid-col_8">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus ut ex molestie blandit. Etiam et turpis sit amet risus mollis interdum. Suspendisse et justo vitae metus bibendum fringilla sed sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio elementum eget. Praesent efficitur eros vitae nunc interdum, eu interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur. Quisque eget eros metus. Vestibulum bibendum fringilla nibh a luctus. Duis a sapien metus.
-                        </p>
-
-                        <p>
-                            Praesent consectetur orci dui, id elementum eros facilisis id. Sed id dolor in augue porttitor faucibus eget sit amet ante. Nunc consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut finibus metus facilisis. Nullam eget lectus non urna rhoncus accumsan quis id massa. Curabitur sit amet dolor nisl. Proin euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed lobortis augue mi vel felis. Duis ultrices sapien at est convallis congue.
-                        </p>
-
-                        <p>
-                            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat. Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed sagittis neque id diam euismod, ut egestas felis ultricies. Nullam non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit amet nisi.
-                        </p>
-                    </div>
-                    <div className="grid-col grid-col_4">
-                        <h3>Already a Member?</h3>
-                        <button
-                            className="btn btn_sizeFull"
-                            onClick={this.onLogin}
-                        >
-                            Login
-                        </button>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+        <div className="container">
+          <div className="container">
+            <img
+              src="../images/BigHeart.png"
+              alt="Heart"
+              className="bigHeartImg"
+            />
+            <div className="centered">"Every dog must have his day!"</div>
+          </div>
+          <Button
+            size="large"
+            variant="contained"
+            color="default"
+            onClick={this.onAdmin}
+          >
+            Admin
+          </Button>{" "}
+          <Button
+            size="large"
+            variant="contained"
+            color="default"
+            onClick={this.onVol}
+          >
+            Volunteer
+          </Button>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default connect(mapStoreToProps)(LandingPage);

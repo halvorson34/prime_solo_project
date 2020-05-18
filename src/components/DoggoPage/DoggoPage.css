@@ -1,0 +1,145 @@
+form {
+  text-align: center;
+}
+
+.newsItems {
+  color: white;
+  font-weight: bold;
+}
+
+.taskImg {
+  float: right;
+  padding-right: 100px;
+}
+
+.tasks {
+  color: white;
+  font-weight: bold;
+}
+
+.taskArea {
+  padding-left: 75px;
+}
+
+.dashboardHeading {
+  color: white;
+  text-shadow: -2px 0 #f85b00, 0 2px #f85b00, 2px 0 #f85b00, 0 -2px #f85b00;
+  font-size: 30px;
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-weight: bold;
+}
+
+.taskHeading {
+  color: white;
+  text-shadow: -2px 0 #f85b00, 0 2px #f85b00, 2px 0 #f85b00, 0 -2px #f85b00;
+  font-size: 30px;
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-weight: bold;
+}
+
+.dogGroupImg {
+  float: right;
+}
+
+.dogBonesImg {
+  padding-top: 50px;
+}
+
+.profileCard {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-weight: bold;
+  font-size: 42px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  background-color: #f85b00;
+  padding: 5px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.welcome {
+  text-align: center;
+  color: white;
+  text-shadow: -2px 0 #f85b00, 0 2px #f85b00, 2px 0 #f85b00, 0 -2px #f85b00;
+  font-size: 30px;
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-weight: bold;
+}
+
+.cards {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+label {
+  color: white;
+  text-shadow: -2px 0 #f85b00, 0 2px #f85b00, 2px 0 #f85b00, 0 -2px #f85b00;
+  font-size: 30px;
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-weight: bold;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f85b00;
+  box-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 15px;
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-weight: bold;
+  padding: 5px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
