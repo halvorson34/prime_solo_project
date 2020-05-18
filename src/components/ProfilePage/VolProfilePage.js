@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Nav2 from "../Nav/Nav2";
 
 import Container from "@material-ui/core/Container";
 
 import { withStyles, createStyles } from "@material-ui/core/styles";
 
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-} from "@material-ui/core";
+import { Card, CardContent, CardMedia } from "@material-ui/core";
 
 const customStyles = (theme) =>
   createStyles({
@@ -38,6 +33,7 @@ class VolProfilePage extends Component {
 
     return (
       <div>
+        <Nav2 />
         <Container maxWidth={false}>
           <h1>Profile Page</h1>
           <div class="profileCard">

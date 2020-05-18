@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Nav2 from "../Nav/Nav2";
 
 import Container from "@material-ui/core/Container";
 
@@ -47,6 +48,7 @@ class VolFeedbackPage extends Component {
   render() {
     return (
       <div>
+        <Nav2 />
         <Container maxWidth={false}>
           <h1>Feedback</h1>
           <form>

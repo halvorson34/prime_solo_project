@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Nav2 from "../Nav/Nav2";
 
 import Container from "@material-ui/core/Container";
 
@@ -16,6 +17,7 @@ class VolDashboardPage extends Component {
   render() {
     return (
       <div>
+        <Nav2 />
         <Container maxWidth={false}>
           <h1>Dashboard</h1>
           {this.props.store.volunteer.map((item, index) => (

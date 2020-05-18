@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Nav3 from "../Nav/Nav3";
 
 import Container from "@material-ui/core/Container";
 
@@ -38,6 +39,7 @@ class AdminProfilePage extends Component {
 
     return (
       <div>
+        <Nav3 />
         <Container maxWidth={false}>
           <h1>Admin Profile Page</h1>
           <div class="profileCard">

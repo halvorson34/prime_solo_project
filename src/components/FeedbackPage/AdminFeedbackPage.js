@@ -1,23 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Nav3 from "../Nav/Nav3";
 
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
-import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 import { withStyles, createStyles } from "@material-ui/core/styles";
 
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-} from "@material-ui/core";
+import { Card, CardActions, CardContent } from "@material-ui/core";
 
 const customStyles = (theme) =>
   createStyles({
@@ -46,6 +40,7 @@ class AdminFeedbackPage extends Component {
 
     return (
       <div>
+        <Nav3 />
         <Container maxWidth={false}>
           <h1>Feedback</h1>
           <div class="cards">

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Nav3 from "../Nav/Nav3";
 
 import Container from "@material-ui/core/Container";
 
@@ -49,6 +50,7 @@ class AdminDashboardPage extends Component {
   render() {
     return (
       <div>
+        <Nav3 />
         <Container maxWidth={false}>
           <h1>Dashboard</h1>
           {this.props.store.admin.map((item, index) => (

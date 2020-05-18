@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Nav3 from "../Nav/Nav3";
 
 import Container from "@material-ui/core/Container";
 
@@ -47,6 +48,7 @@ class AdminTasksPage extends Component {
   render() {
     return (
       <div>
+        <Nav3 />
         <Container maxWidth={false}>
           <h1>Tasks</h1>
           <h2 class="taskHeading">Current task list...</h2>

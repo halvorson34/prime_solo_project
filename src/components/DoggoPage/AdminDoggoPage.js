@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
+import Nav3 from "../Nav/Nav3";
+
 import "./DoggoPage.css";
 
 //import DropzoneS3Uploader from "react-dropzone-s3-uploader";
@@ -116,6 +118,7 @@ class AdminDoggoPage extends Component {
 
     return (
       <div>
+        <Nav3 />
         <Container maxWidth={false}>
           <h1>Enter New Doggo's:</h1>
           <form>
