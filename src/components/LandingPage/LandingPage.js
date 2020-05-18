@@ -28,7 +28,7 @@ class LandingPage extends Component {
               alt="Heart"
               className="bigHeartImg"
             />
-            <div className="centered">"Every dog must have his day"</div>
+            <div className="centered">"Every dog must have his day!"</div>
           </div>
           <Button
             size="large"

@@ -51,9 +51,9 @@ class AdminFeedbackPage extends Component {
                     <div key={index}>
                       <ul>
                         <CardContent>
-                          <li>{item.comments}</li>
-                          <li>{item.issues}</li>
-                          <li>{item.thank_yous}</li>
+                          <li>Comments: {item.comments}</li>
+                          <li>Issues: {item.issues}</li>
+                          <li>Thanks: {item.thank_yous}</li>
                         </CardContent>
                         <CardActions>
                           <Button
