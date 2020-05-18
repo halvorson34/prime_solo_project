@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import Container from "@material-ui/core/Container";
+
 class AdminDashboardPage extends Component {
   componentDidMount() {
     this.props.dispatch({
@@ -44,28 +46,44 @@ class AdminDashboardPage extends Component {
   render() {
     return (
       <div>
-        <h1>Admin Dashboard</h1>
-        {this.props.store.admin.map((item, index) => (
-          <div key={index}>
-            <h3> Welcome {item.first_name}!</h3>
-          </div>
-        ))}
-        <h3>What's New...</h3>
-        {this.props.store.news.map((item, index) => (
-          <div key={index}>
-            <ul>
-              <li>
-                {item.message}{" "}
-                <button onClick={(event) => this.deleteNews(item.id, event)}>
-                  Delete
-                </button>
-              </li>
-            </ul>
-          </div>
-        ))}
-        <h3>New Message to Volunteers</h3>
-        <input onChange={this.addNews} type="text" value={this.state.message} />
-        <button onClick={this.saveNews}>Submit</button>
+        <Container maxWidth={false}>
+          <h1>Dashboard</h1>
+          {this.props.store.admin.map((item, index) => (
+            <div key={index} class="welcome">
+              <h2 class="welcome"> Welcome {item.first_name}!</h2>
+            </div>
+          ))}
+          <h3>What's New...</h3>
+          <img src="../images/DogGroup.png" class="dogGroupImg" />
+          {this.props.store.news.map((item, index) => (
+            <div key={index}>
+              <ul>
+                <li>
+                  {item.message}{" "}
+                  <button
+                    class="button"
+                    onClick={(event) => this.deleteNews(item.id, event)}
+                  >
+                    <span>Delete</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ))}
+          <h3>Send a Message to Volunteers!</h3>
+          <textarea
+            rows="25"
+            cols="50"
+            onChange={this.addNews}
+            type="text"
+            value={this.state.message}
+            placeholder="Send out news and updates here!"
+          ></textarea>
+          <br />
+          <button class="button" onClick={this.saveNews}>
+            <span>Submit </span>
+          </button>
+        </Container>
       </div>
     );
   }

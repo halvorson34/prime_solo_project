@@ -164,7 +164,6 @@ class AdminDoggoPage extends Component {
                         image={item.picture}
                         title={item.name}
                       />
-                      {/*<img src={item.picture} alt={item.name} />*/}
                       <br />
                       <CardContent>
                         Name: {item.name}

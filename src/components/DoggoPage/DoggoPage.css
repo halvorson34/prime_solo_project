@@ -2,12 +2,25 @@ form {
   text-align: center;
 }
 
+.dogGroupImg {
+  float: right;
+}
+
 h1 {
   font-family: Comic Sans, Comic Sans MS, cursive;
   background-color: #f85b00;
   padding: 5px;
   text-align: center;
   color: white;
+  font-weight: bold;
+}
+
+.welcome {
+  text-align: center;
+  color: white;
+  text-shadow: -2px 0 #f85b00, 0 2px #f85b00, 2px 0 #f85b00, 0 -2px #f85b00;
+  font-size: 30px;
+  font-family: Comic Sans, Comic Sans MS, cursive;
   font-weight: bold;
 }
 
