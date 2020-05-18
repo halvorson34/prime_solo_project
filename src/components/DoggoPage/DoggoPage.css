@@ -14,6 +14,13 @@ form {
   padding-top: 50px;
 }
 
+.profileCard {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
 .container {
   position: relative;
   text-align: center;
