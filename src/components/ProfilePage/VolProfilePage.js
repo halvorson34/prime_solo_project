@@ -36,7 +36,7 @@ class VolProfilePage extends Component {
         <Nav2 />
         <Container maxWidth={false}>
           <h1>Profile Page</h1>
-          <div class="profileCard">
+          <div className="profileCard">
             {this.props.store.volunteer.map((item, index) => (
               <Card className={classes.card}>
                 <div key={index}>

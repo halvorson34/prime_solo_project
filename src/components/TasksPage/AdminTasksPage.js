@@ -51,28 +51,38 @@ class AdminTasksPage extends Component {
         <Nav3 />
         <Container maxWidth={false}>
           <h1>Tasks</h1>
-          <h2 class="taskHeading">Current task list...</h2>
-          <img src="./images/DogBath.png" class="taskImg" />
-          {this.props.store.tasks.map((item, index) => (
-            <div key={index} class="tasks">
-              <ul>
-                <li>
-                  {item.task}
-                  <IconButton
-                    aria-label="delete"
-                    onClick={(event) => this.deleteTask(item.id, event)}
-                  >
-                    <DeleteIcon />
-                  </IconButton>
-                </li>
-              </ul>
-            </div>
-          ))}
-          <h2 class="taskHeading">Add new task...</h2>
-          <input onChange={this.addTask} type="text" value={this.state.task} />
-          <button class="button" onClick={this.saveTask}>
-            <span>Add </span>
-          </button>
+          <div className="taskArea">
+            <h2 className="taskHeading">Current task list...</h2>
+            <img
+              src="./images/DogBath.png"
+              alt="Dog Bath"
+              className="taskImg"
+            />
+            {this.props.store.tasks.map((item, index) => (
+              <div key={index} class="tasks">
+                <ul>
+                  <li>
+                    {item.task}
+                    <IconButton
+                      aria-label="delete"
+                      onClick={(event) => this.deleteTask(item.id, event)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  </li>
+                </ul>
+              </div>
+            ))}
+            <h2 className="taskHeading">Add new task...</h2>
+            <input
+              onChange={this.addTask}
+              type="text"
+              value={this.state.task}
+            />
+            <button className="button" onClick={this.saveTask}>
+              <span>Add </span>
+            </button>
+          </div>
         </Container>
       </div>
     );

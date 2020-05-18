@@ -74,11 +74,15 @@ class VolFeedbackPage extends Component {
               value={this.state.thank_yous}
             />
             <br />
-            <button class="button" onClick={this.saveFeedback}>
+            <button className="button" onClick={this.saveFeedback}>
               <span>Submit </span>
             </button>
             <br />
-            <img src="../images/DogBones.png" class="dogBonesImg" />
+            <img
+              src="../images/DogBones.png"
+              alt="Dog Bones"
+              className="dogBonesImg"
+            />
           </form>
         </Container>
       </div>

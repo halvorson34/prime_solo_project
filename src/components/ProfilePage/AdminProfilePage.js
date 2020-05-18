@@ -7,13 +7,7 @@ import Container from "@material-ui/core/Container";
 
 import { withStyles, createStyles } from "@material-ui/core/styles";
 
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-} from "@material-ui/core";
+import { Card, CardContent, CardMedia } from "@material-ui/core";
 
 const customStyles = (theme) =>
   createStyles({
@@ -42,7 +36,7 @@ class AdminProfilePage extends Component {
         <Nav3 />
         <Container maxWidth={false}>
           <h1>Admin Profile Page</h1>
-          <div class="profileCard">
+          <div className="profileCard">
             {this.props.store.admin.map((item, index) => (
               <Card className={classes.card}>
                 <div key={index}>

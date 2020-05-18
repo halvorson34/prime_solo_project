@@ -38,12 +38,12 @@ class VolDoggoPage extends Component {
         <Nav2 />
         <Container maxWidth={false}>
           <h1>Doggo's</h1>
-          <div class="cards">
+          <div className="cards">
             <Grid container spacing={5}>
               {this.props.store.doggos.map((item, index) => (
                 <Grid item xs={4}>
                   <Card className={classes.card}>
-                    <div key={index} class="dogList">
+                    <div key={index} className="dogList">
                       <CardMedia
                         className={classes.imgMedia}
                         image={item.picture}

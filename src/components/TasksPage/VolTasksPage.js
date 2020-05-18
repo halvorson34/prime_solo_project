@@ -18,19 +18,24 @@ class VolTasksPage extends Component {
         <Nav2 />
         <Container maxWidth={false}>
           <h1>Tasks</h1>
+          <div className="taskArea">
+            <h2 className="taskHeading">A few things to get you started...</h2>
+            <img
+              src="./images/DogBath.png"
+              alt="Dog Bath"
+              className="taskImg"
+            />
 
-          <h2 class="taskHeading">A few things to get you started...</h2>
-          <img src="./images/DogBath.png" class="taskImg" />
-
-          {this.props.store.tasks.map((item, index) => (
-            <div key={index} class="tasks">
-              <Checkbox
-                color="default"
-                inputProps={{ "aria-label": "checkbox with default color" }}
-              />{" "}
-              {item.task}
-            </div>
-          ))}
+            {this.props.store.tasks.map((item, index) => (
+              <div key={index} className="tasks">
+                <Checkbox
+                  color="default"
+                  inputProps={{ "aria-label": "checkbox with default color" }}
+                />{" "}
+                {item.task}
+              </div>
+            ))}
+          </div>
         </Container>
       </div>
     );

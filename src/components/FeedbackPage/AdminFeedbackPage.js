@@ -43,7 +43,7 @@ class AdminFeedbackPage extends Component {
         <Nav3 />
         <Container maxWidth={false}>
           <h1>Feedback</h1>
-          <div class="cards">
+          <div className="cards">
             <Grid container spacing={5}>
               {this.props.store.feedback.map((item, index) => (
                 <Grid item xs={4}>

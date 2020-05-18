@@ -9,11 +9,16 @@ form {
 
 .taskImg {
   float: right;
+  padding-right: 100px;
 }
 
 .tasks {
   color: white;
   font-weight: bold;
+}
+
+.taskArea {
+  padding-left: 75px;
 }
 
 .dashboardHeading {

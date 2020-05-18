@@ -5,11 +5,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const sessionMiddleware = require("./modules/session-middleware");
 
-const passport = require("./strategies/user.strategy");
-
 // Route includes
-const userRouter = require("./routes/user.router");
-//const templateRouter = require("./routes/template.router");
 const tasksRouter = require("./routes/tasks.router");
 const doggosRouter = require("./routes/doggos.router");
 const feedbackRouter = require("./routes/feedback.router");
@@ -24,13 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Passport Session Configuration //
 app.use(sessionMiddleware);
 
-// start up passport sessions
-app.use(passport.initialize());
-app.use(passport.session());
-
 /* Routes */
-app.use("/api/user", userRouter);
-//app.use("/api/template", templateRouter);
 app.use("/api/tasks", tasksRouter);
 app.use("/api/doggos", doggosRouter);
 app.use("/api/feedback", feedbackRouter);

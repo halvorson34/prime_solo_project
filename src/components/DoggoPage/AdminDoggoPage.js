@@ -6,9 +6,6 @@ import Nav3 from "../Nav/Nav3";
 
 import "./DoggoPage.css";
 
-//import DropzoneS3Uploader from "react-dropzone-s3-uploader";
-//import ImageUpload from "../ImageUpload/ImageUpload";
-
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -16,13 +13,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 import { withStyles, createStyles } from "@material-ui/core/styles";
 
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-} from "@material-ui/core";
+import { Card, CardActions, CardContent, CardMedia } from "@material-ui/core";
 
 const customStyles = (theme) =>
   createStyles({
@@ -55,42 +46,42 @@ class AdminDoggoPage extends Component {
     picture: "",
   };
 
-  // input on change for Comments
+  // input on change for Name
   addDoggoName = (event) => {
     this.setState({
       name: event.target.value,
     });
   };
 
-  // input on change for Comments
+  // input on change for Breed
   addDoggoBreed = (event) => {
     this.setState({
       breed: event.target.value,
     });
   };
 
-  // input on change for Comments
+  // input on change for Age
   addDoggoAge = (event) => {
     this.setState({
       age: event.target.value,
     });
   };
 
-  // input on change for Comments
+  // input on change for Arrived
   addDoggoArrived = (event) => {
     this.setState({
       arrived: event.target.value,
     });
   };
 
-  // input on change for Comments
+  // input on change for Notes
   addDoggoNotes = (event) => {
     this.setState({
       notes: event.target.value,
     });
   };
 
-  // onClick event for Comments, send input data to feedback reducer and post to feedback table in prime_app database
+  // onClick event for Dogs, send input data to doggo reducer and post to dogs table in prime_app database
   saveDoggo = (event) => {
     event.preventDefault();
     this.props.dispatch({

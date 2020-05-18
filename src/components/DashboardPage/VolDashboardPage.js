@@ -22,12 +22,16 @@ class VolDashboardPage extends Component {
           <h1>Dashboard</h1>
           {this.props.store.volunteer.map((item, index) => (
             <div key={index}>
-              <h2 class="welcome"> Welcome {item.first_name}!</h2>
-              <h3>What's new...</h3>
-              <img src="../images/DogGroup.png" class="dogGroupImg" />
+              <h2 className="welcome"> Welcome {item.first_name}!</h2>
+              <h3 className="dashboardHeading">What's new...</h3>
+              <img
+                src="../images/DogGroup.png"
+                alt="Dog Group"
+                className="dogGroupImg"
+              />
 
               {this.props.store.news.map((item, index) => (
-                <div key={index}>
+                <div key={index} className="newsItems">
                   <ul>
                     <li>{item.message}</li>
                   </ul>

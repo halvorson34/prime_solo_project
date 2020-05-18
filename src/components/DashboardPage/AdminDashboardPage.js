@@ -54,12 +54,16 @@ class AdminDashboardPage extends Component {
         <Container maxWidth={false}>
           <h1>Dashboard</h1>
           {this.props.store.admin.map((item, index) => (
-            <div key={index} class="welcome">
-              <h2 class="welcome"> Welcome {item.first_name}!</h2>
+            <div key={index} className="welcome">
+              <h2 className="welcome"> Welcome {item.first_name}!</h2>
             </div>
           ))}
-          <h3 class="dashboardHeading">What's New...</h3>
-          <img src="../images/DogGroup.png" class="dogGroupImg" />
+          <h3 className="dashboardHeading">What's New...</h3>
+          <img
+            src="../images/DogGroup.png"
+            alt="Dog Group"
+            class="dogGroupImg"
+          />
           {this.props.store.news.map((item, index) => (
             <div key={index} class="newsItems">
               <ul>
@@ -75,7 +79,7 @@ class AdminDashboardPage extends Component {
               </ul>
             </div>
           ))}
-          <h3 class="dashboardHeading">Send a Message to Volunteers...</h3>
+          <h3 className="dashboardHeading">Send a Message to Volunteers...</h3>
           <textarea
             rows="25"
             cols="50"
@@ -85,7 +89,7 @@ class AdminDashboardPage extends Component {
             placeholder="Send out news and updates here!"
           ></textarea>
           <br />
-          <button class="button" onClick={this.saveNews}>
+          <button className="button" onClick={this.saveNews}>
             <span>Submit </span>
           </button>
         </Container>
