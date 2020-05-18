@@ -10,6 +10,7 @@ import "./DoggoPage.css";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import { withStyles, createStyles } from "@material-ui/core/styles";
 
@@ -178,9 +179,12 @@ class AdminDoggoPage extends Component {
                       </CardContent>
                       <CardActions>
                         <Button
-                          size="small"
-                          color="secondary"
                           onClick={(event) => this.deleteDoggo(item.id, event)}
+                          variant="contained"
+                          size="small"
+                          color="default"
+                          className={classes.button}
+                          startIcon={<DeleteIcon />}
                         >
                           Delete
                         </Button>

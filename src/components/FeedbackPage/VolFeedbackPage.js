@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import Container from "@material-ui/core/Container";
+
 class VolFeedbackPage extends Component {
   state = {
     comments: "",
@@ -45,31 +47,38 @@ class VolFeedbackPage extends Component {
   render() {
     return (
       <div>
-        <h1>Feedback</h1>
-        <form>
-          <label for="comments">Comments:</label>
-          <input
-            id="comments"
-            onChange={this.addComments}
-            type="text"
-            value={this.state.comments}
-          />
-          <label for="issues">Issues:</label>
-          <input
-            id="issues"
-            onChange={this.addIssues}
-            type="text"
-            value={this.state.issues}
-          />
-          <label for="thankyous">Thank Yous:</label>
-          <input
-            id="thankyous"
-            onChange={this.addThankYous}
-            type="text"
-            value={this.state.thank_yous}
-          />
-          <button onClick={this.saveFeedback}>Submit</button>
-        </form>
+        <Container maxWidth={false}>
+          <h1>Feedback</h1>
+          <form>
+            <label for="comments">Comments:</label>
+            <input
+              id="comments"
+              onChange={this.addComments}
+              type="text"
+              value={this.state.comments}
+            />
+            <label for="issues">Issues:</label>
+            <input
+              id="issues"
+              onChange={this.addIssues}
+              type="text"
+              value={this.state.issues}
+            />
+            <label for="thankyous">Thank Yous:</label>
+            <input
+              id="thankyous"
+              onChange={this.addThankYous}
+              type="text"
+              value={this.state.thank_yous}
+            />
+            <br />
+            <button class="button" onClick={this.saveFeedback}>
+              <span>Submit </span>
+            </button>
+            <br />
+            <img src="../images/DogBones.png" class="dogBonesImg" />
+          </form>
+        </Container>
       </div>
     );
   }

@@ -2,8 +2,32 @@ form {
   text-align: center;
 }
 
+.line {
+  text-align: center;
+}
+
 .dogGroupImg {
   float: right;
+}
+
+.dogBonesImg {
+  padding-top: 50px;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-weight: bold;
+  font-size: 42px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 h1 {
