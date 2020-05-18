@@ -1,7 +1,37 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+
+import "./DoggoPage.css";
+
 //import DropzoneS3Uploader from "react-dropzone-s3-uploader";
 //import ImageUpload from "../ImageUpload/ImageUpload";
+
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+
+import { withStyles, createStyles } from "@material-ui/core/styles";
+
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+} from "@material-ui/core";
+
+const customStyles = (theme) =>
+  createStyles({
+    imgMedia: {
+      height: "250px",
+      width: "250px",
+    },
+    card: {
+      maxWidth: "250px",
+      boxShadow: "10px 8px 40px -12px rgba(0,0,0,1)",
+    },
+  });
 
 class AdminDoggoPage extends Component {
   componentDidMount() {
@@ -81,57 +111,88 @@ class AdminDoggoPage extends Component {
   };
 
   render() {
+    const { classes } = this.props;
+
     return (
       <div>
-        <h1>Doggo's</h1>
-        Name:{" "}
-        <input
-          onChange={this.addDoggoName}
-          type="text"
-          value={this.state.name}
-        />
-        Breed:{" "}
-        <input
-          onChange={this.addDoggoBreed}
-          type="text"
-          value={this.state.breed}
-        />
-        Age:{" "}
-        <input onChange={this.addDoggoAge} type="text" value={this.state.age} />
-        Arrived:{" "}
-        <input
-          onChange={this.addDoggoArrived}
-          type="text"
-          value={this.state.arrived}
-        />
-        Notes:{" "}
-        <input
-          onChange={this.addDoggoNotes}
-          type="text"
-          value={this.state.notes}
-        />
-        <button onClick={this.saveDoggo}>Submit</button>
-        <h1>Doggo's</h1>
-        {this.props.store.doggos.map((item, index) => (
-          <div key={index} class="dogList">
-            <img src={item.picture} alt={item.name} />
-            <br />
-            Name: {item.name}
-            <br />
-            Breed: {item.breed}
-            <br />
-            Age: {item.age}
-            <br />
-            Arrived: {item.arrived}
-            <br />
-            Notes: {item.notes}
-            <br />
-            <button onClick={(event) => this.deleteDoggo(item.id, event)}>
-              Delete
+        <Container maxWidth={false}>
+          <h1>Enter New Doggo's:</h1>
+          <form>
+            <label for="name">Name:</label>
+            <input
+              placeholder="Name"
+              id="name"
+              onChange={this.addDoggoBreed}
+            ></input>
+            <label for="breed">Breed:</label>
+            <input
+              placeholder="Breed"
+              id="breed"
+              onChange={this.addDoggoBreed}
+            ></input>
+            <label for="age">Age:</label>
+            <input
+              placeholder="Years/Months"
+              id="age"
+              onChange={this.addDoggoAge}
+            ></input>
+            <label for="arrived">Arrived:</label>
+            <input
+              id="arrived"
+              placeholder="dd/mm/yyyy"
+              onChange={this.addDoggoArrived}
+            ></input>
+            <label for="notes">Notes:</label>
+            <input
+              placeholder="Notes"
+              id="notes"
+              onChange={this.addDoggoNotes}
+            ></input>
+            <button class="button" onClick={this.saveDoggo}>
+              <span>Submit </span>
             </button>
-            <br />
+          </form>
+          <h1>Current Doggo's:</h1>
+          <div class="cards">
+            <Grid container spacing={5}>
+              {this.props.store.doggos.map((item, index) => (
+                <Grid item xs={4}>
+                  <Card className={classes.card}>
+                    <div key={index}>
+                      <CardMedia
+                        className={classes.imgMedia}
+                        image={item.picture}
+                        title={item.name}
+                      />
+                      {/*<img src={item.picture} alt={item.name} />*/}
+                      <br />
+                      <CardContent>
+                        Name: {item.name}
+                        <br />
+                        Breed: {item.breed}
+                        <br />
+                        Age: {item.age}
+                        <br />
+                        Arrived: {item.arrived}
+                        <br />
+                        Notes: {item.notes}
+                      </CardContent>
+                      <CardActions>
+                        <Button
+                          size="small"
+                          color="secondary"
+                          onClick={(event) => this.deleteDoggo(item.id, event)}
+                        >
+                          Delete
+                        </Button>
+                      </CardActions>
+                    </div>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
           </div>
-        ))}
+        </Container>
       </div>
     );
   }
@@ -139,4 +200,6 @@ class AdminDoggoPage extends Component {
 
 const mapStoreToProps = (store) => ({ store });
 
-export default connect(mapStoreToProps)(AdminDoggoPage);
+export default withStyles(customStyles)(
+  withRouter(connect(mapStoreToProps)(AdminDoggoPage))
+);

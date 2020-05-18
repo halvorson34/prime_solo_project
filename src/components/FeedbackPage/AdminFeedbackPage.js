@@ -22,16 +22,12 @@ class AdminFeedbackPage extends Component {
         {this.props.store.feedback.map((item, index) => (
           <div key={index}>
             <ul>
-              <li>
-                {item.comments}
-                {/*{item.issues} */}
-                {/*{item.thank_yous}*/}
-                <button
-                  onClick={(event) => this.deleteFeedback(item.id, event)}
-                >
-                  Delete
-                </button>
-              </li>
+              <li>{item.comments}</li>
+              <li>{item.issues}</li>
+              <li>{item.thank_yous}</li>
+              <button onClick={(event) => this.deleteFeedback(item.id, event)}>
+                Delete
+              </button>
             </ul>
           </div>
         ))}

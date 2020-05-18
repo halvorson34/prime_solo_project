@@ -15,34 +15,10 @@ class VolFeedbackPage extends Component {
     });
   };
 
-  // onClick event for Comments, send input data to feedback reducer and post to feedback table in prime_app database
-  saveComments = (event) => {
-    event.preventDefault();
-    this.props.dispatch({
-      type: "SAVE_FEEDBACK",
-      payload: this.state,
-    });
-    this.setState({
-      comments: "",
-    });
-  };
-
   // input on change for Issues
   addIssues = (event) => {
     this.setState({
       issues: event.target.value,
-    });
-  };
-
-  // onClick event for Issues, send input data to feedback reducer and post to feedback table in prime_app database
-  saveIssues = (event) => {
-    event.preventDefault();
-    this.props.dispatch({
-      type: "SAVE_FEEDBACK",
-      payload: this.state,
-    });
-    this.setState({
-      issues: "",
     });
   };
 
@@ -53,14 +29,15 @@ class VolFeedbackPage extends Component {
     });
   };
 
-  // onClick event for Thank Yous, send input data to feedback reducer and post to feedback table in prime_app database
-  saveThankYous = (event) => {
+  saveFeedback = (event) => {
     event.preventDefault();
     this.props.dispatch({
       type: "SAVE_FEEDBACK",
       payload: this.state,
     });
     this.setState({
+      comments: "",
+      issues: "",
       thank_yous: "",
     });
   };
@@ -70,24 +47,28 @@ class VolFeedbackPage extends Component {
       <div>
         <h1>Feedback</h1>
         <form>
+          <label for="comments">Comments:</label>
           <input
+            id="comments"
             onChange={this.addComments}
             type="text"
             value={this.state.comments}
           />
-          <button onClick={this.saveComments}>Submit</button>
+          <label for="issues">Issues:</label>
           <input
+            id="issues"
             onChange={this.addIssues}
             type="text"
             value={this.state.issues}
           />
-          <button onClick={this.saveIssues}>Submit</button>
+          <label for="thankyous">Thank Yous:</label>
           <input
+            id="thankyous"
             onChange={this.addThankYous}
             type="text"
             value={this.state.thank_yous}
           />
-          <button onClick={this.saveThankYous}>Submit</button>
+          <button onClick={this.saveFeedback}>Submit</button>
         </form>
       </div>
     );
